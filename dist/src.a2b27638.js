@@ -118,44 +118,14 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"src/App.js":[function(require,module,exports) {
-var nombre = document.querySelector("#nombre-input");
-var form = document.querySelector("#saludador-form");
-var edad = document.querySelector("#edad-input");
-var gen = document.querySelector("#genero-input");
-var idi = document.querySelector("#Idioma");
-/*function tiipoSaludo( hrs){
-  var tiipoSaludos= "Buenas Noches "; 
-  if(hora>0 && hora<12){
-    tiipoSaludos= "Buenas Dias ";
-  }
-  else if(hora>11 && hora<19){
-    tiipoSaludos= "Buenas tardes ";
-  }
-  return tiipoSaludos;
-}*/
-
-form.addEventListener("submit", function (event) {
-  var sms = "Hola ";
-  var generoSaludo = "Señor ";
-  var hoy = new Date();
-  var hora = hoy.getHours();
-  var tiipoSaludo = "Buenas Noches ";
-
-  if (hora > 0 && hora < 12) {
-    tiipoSaludo = "Buenas Dias ";
-  } else if (hora > 11 && hora < 19) {
-    tiipoSaludo = "Buenas tardes ";
-  }
-
-  if (edad.value > 18) {
-    if (gen.value == "Femenino") {
-      generoSaludo = "Señora ";
-    }
-
-    sms = sms + generoSaludo;
-  }
-
-  alert(sms + nombre.value + tiipoSaludo);
+var form = document.querySelector("#registrar-actividad");
+var actividad = document.querySelector("#todo");
+var tipoActividad = document.querySelector("#Tipo-actividad");
+form.addEventListener("guardar", function (event) {
+  var listaActividad;
+  listaActividad.push(actividad.value + " " + tipoActividad);
+  alert("hola");
+  document.querySelector("div").innerHTML = JSON.stringify(listaActividad);
 });
 },{}],"src/index.js":[function(require,module,exports) {
 "use strict";
@@ -189,7 +159,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60773" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61845" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
